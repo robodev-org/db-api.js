@@ -1,0 +1,19 @@
+title: db-api Documentation
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  toc_levels: 2..4
+
+theme: null
+exclude:
+  - node_modules
+  - dist
+  - tests
+  - examples
+  - package.json
+  - package-lock.json
+  - tsconfig.json
+  - tsup.config.ts
+
+plugins: []

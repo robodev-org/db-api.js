@@ -1,0 +1,199 @@
+{
+  "report": {
+    "repo": "db-api",
+    "version": "0.1.0",
+    "traceId": "9f11066627363e0f63f36b0b4877026c",
+    "env": {
+      "userAgent": "Node.js/22",
+      "platform": "Linux x86_64"
+    },
+    "options": {
+      "cache": {
+        "enabled": true,
+        "ttlSeconds": 300,
+        "staleWhileRevalidate": true
+      },
+      "pageSize": 20,
+      "publicOnly": true,
+      "diagnostics": {
+        "enabled": true,
+        "includeSamples": false
+      }
+    },
+    "timeline": [
+      {
+        "t": 0,
+        "name": "client.init"
+      },
+      {
+        "t": 0,
+        "name": "probe.start",
+        "meta": {
+          "label": "timeout"
+        }
+      },
+      {
+        "t": 0,
+        "name": "query.build",
+        "meta": {
+          "plan": {
+            "table": "content",
+            "select": "*",
+            "filters": [
+              {
+                "field": "published",
+                "op": "eq",
+                "value": true
+              }
+            ],
+            "range": {
+              "from": 0,
+              "to": 19
+            }
+          }
+        }
+      },
+      {
+        "t": 0,
+        "name": "query.execute",
+        "meta": {
+          "plan": {
+            "table": "content",
+            "select": "*",
+            "filters": [
+              {
+                "field": "published",
+                "op": "eq",
+                "value": true
+              }
+            ],
+            "range": {
+              "from": 0,
+              "to": 19
+            }
+          }
+        }
+      },
+      {
+        "t": 1,
+        "name": "probe.end",
+        "meta": {
+          "label": "timeout"
+        }
+      }
+    ],
+    "events": [
+      {
+        "level": "info",
+        "name": "rls.assumed",
+        "meta": {
+          "note": "Row Level Security enforced server-side; client assumes hostile usage."
+        }
+      },
+      {
+        "level": "info",
+        "name": "filter.publishedOnly.applied",
+        "meta": {
+          "field": "published",
+          "value": true
+        }
+      },
+      {
+        "level": "debug",
+        "name": "cache.miss",
+        "meta": {
+          "cacheKey": "content:content:query:{\"filters\":[{\"field\":\"published\",\"op\":\"eq\",\"value\":true}],\"order\":undefined,\"page\":1,\"pageSize\":20,\"select\":\"*\"}",
+          "state": "empty"
+        }
+      },
+      {
+        "level": "error",
+        "name": "query.exception",
+        "meta": {
+          "message": "Timeout"
+        }
+      }
+    ],
+    "artifacts": {},
+    "snapshots": [
+      {
+        "name": "probe.before",
+        "at": "2026-01-19T17:45:39.776Z",
+        "data": {
+          "label": "timeout"
+        }
+      },
+      {
+        "name": "probe.after",
+        "at": "2026-01-19T17:45:39.777Z",
+        "data": {
+          "label": "timeout",
+          "ok": false
+        }
+      }
+    ],
+    "errors": [
+      {
+        "code": "ERR_QUERY_FAILED",
+        "message": "Timeout",
+        "cause": "Error: Timeout"
+      }
+    ]
+  },
+  "capture": {
+    "resolvedOptions": {
+      "cache": {
+        "enabled": true,
+        "ttlSeconds": 300,
+        "staleWhileRevalidate": true
+      },
+      "pageSize": 20,
+      "publicOnly": true,
+      "diagnostics": {
+        "enabled": true,
+        "includeSamples": false
+      },
+      "background": {}
+    },
+    "callTrace": [
+      {
+        "t": 1768844739776,
+        "method": "from",
+        "args": [
+          "content"
+        ]
+      },
+      {
+        "t": 1768844739776,
+        "method": "select",
+        "args": [
+          "*"
+        ]
+      },
+      {
+        "t": 1768844739776,
+        "method": "range",
+        "args": [
+          0,
+          19
+        ]
+      },
+      {
+        "t": 1768844739776,
+        "method": "eq",
+        "args": [
+          "published",
+          true
+        ]
+      }
+    ],
+    "outputs": [],
+    "errors": [
+      {
+        "code": "ERR_QUERY_FAILED",
+        "message": "Timeout",
+        "cause": "Error: Timeout"
+      }
+    ]
+  }
+}

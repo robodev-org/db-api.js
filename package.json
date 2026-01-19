@@ -1,0 +1,39 @@
+{
+  "name": "@robodev/db-api",
+  "version": "0.1.0",
+  "description": "Browser-side Supabase SDK enforcing read-only, published-only access.",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.3"
+  },
+  "devDependencies": {
+    "tsup": "^8.1.0",
+    "typescript": "^5.6.3",
+    "vitest": "^2.0.5"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

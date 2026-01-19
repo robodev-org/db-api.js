@@ -1,0 +1,199 @@
+{
+  "report": {
+    "repo": "db-api",
+    "version": "0.1.0",
+    "traceId": "bc9a81af2f8296d5d331a85628ccbb9a",
+    "env": {
+      "userAgent": "Node.js/22",
+      "platform": "Linux x86_64"
+    },
+    "options": {
+      "cache": {
+        "enabled": true,
+        "ttlSeconds": 300,
+        "staleWhileRevalidate": true
+      },
+      "pageSize": 20,
+      "publicOnly": true,
+      "diagnostics": {
+        "enabled": true,
+        "includeSamples": false
+      }
+    },
+    "timeline": [
+      {
+        "t": 0,
+        "name": "client.init"
+      },
+      {
+        "t": 1,
+        "name": "probe.start",
+        "meta": {
+          "label": "abort"
+        }
+      },
+      {
+        "t": 1,
+        "name": "query.build",
+        "meta": {
+          "plan": {
+            "table": "content",
+            "select": "*",
+            "filters": [
+              {
+                "field": "published",
+                "op": "eq",
+                "value": true
+              }
+            ],
+            "range": {
+              "from": 0,
+              "to": 19
+            }
+          }
+        }
+      },
+      {
+        "t": 1,
+        "name": "query.execute",
+        "meta": {
+          "plan": {
+            "table": "content",
+            "select": "*",
+            "filters": [
+              {
+                "field": "published",
+                "op": "eq",
+                "value": true
+              }
+            ],
+            "range": {
+              "from": 0,
+              "to": 19
+            }
+          }
+        }
+      },
+      {
+        "t": 1,
+        "name": "probe.end",
+        "meta": {
+          "label": "abort"
+        }
+      }
+    ],
+    "events": [
+      {
+        "level": "info",
+        "name": "rls.assumed",
+        "meta": {
+          "note": "Row Level Security enforced server-side; client assumes hostile usage."
+        }
+      },
+      {
+        "level": "info",
+        "name": "filter.publishedOnly.applied",
+        "meta": {
+          "field": "published",
+          "value": true
+        }
+      },
+      {
+        "level": "debug",
+        "name": "cache.miss",
+        "meta": {
+          "cacheKey": "content:content:query:{\"filters\":[{\"field\":\"published\",\"op\":\"eq\",\"value\":true}],\"order\":undefined,\"page\":1,\"pageSize\":20,\"select\":\"*\"}",
+          "state": "empty"
+        }
+      },
+      {
+        "level": "error",
+        "name": "query.exception",
+        "meta": {
+          "message": "Aborted"
+        }
+      }
+    ],
+    "artifacts": {},
+    "snapshots": [
+      {
+        "name": "probe.before",
+        "at": "2026-01-19T17:45:39.783Z",
+        "data": {
+          "label": "abort"
+        }
+      },
+      {
+        "name": "probe.after",
+        "at": "2026-01-19T17:45:39.783Z",
+        "data": {
+          "label": "abort",
+          "ok": false
+        }
+      }
+    ],
+    "errors": [
+      {
+        "code": "ERR_QUERY_FAILED",
+        "message": "Aborted",
+        "cause": "AbortError: Aborted"
+      }
+    ]
+  },
+  "capture": {
+    "resolvedOptions": {
+      "cache": {
+        "enabled": true,
+        "ttlSeconds": 300,
+        "staleWhileRevalidate": true
+      },
+      "pageSize": 20,
+      "publicOnly": true,
+      "diagnostics": {
+        "enabled": true,
+        "includeSamples": false
+      },
+      "background": {}
+    },
+    "callTrace": [
+      {
+        "t": 1768844739783,
+        "method": "from",
+        "args": [
+          "content"
+        ]
+      },
+      {
+        "t": 1768844739783,
+        "method": "select",
+        "args": [
+          "*"
+        ]
+      },
+      {
+        "t": 1768844739783,
+        "method": "range",
+        "args": [
+          0,
+          19
+        ]
+      },
+      {
+        "t": 1768844739783,
+        "method": "eq",
+        "args": [
+          "published",
+          true
+        ]
+      }
+    ],
+    "outputs": [],
+    "errors": [
+      {
+        "code": "ERR_QUERY_FAILED",
+        "message": "Aborted",
+        "cause": "AbortError: Aborted"
+      }
+    ]
+  }
+}
