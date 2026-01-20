@@ -34,4 +34,4 @@ Covers the structure of this documentation set and its intended reading order. D
 
 ## Glossary
 
-- [Glossary](/docs/glossary.html)
+- [Glossary](/db-api.js/glossary.html)
